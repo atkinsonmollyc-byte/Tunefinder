@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TuneFinder</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="hero">
+        <p class="eyebrow">TuneFinder</p>
+        <h1>Find a sound for right now.</h1>
+        <p class="intro">
+          Pick what you want to hear, and TuneFinder will suggest three mock
+          recommendations from a small demo library.
+        </p>
+      </section>
+
+      <section class="search-panel" aria-labelledby="preference-heading">
+        <div class="preference-copy">
+          <h2 id="preference-heading">What are you in the mood for?</h2>
+          <p>
+            Choose a few genres, moods, eras, or voices. No personal details
+            needed.
+          </p>
+        </div>
+
+        <form id="preference-form" novalidate>
+          <fieldset>
+            <legend>What do you want recommended?</legend>
+            <div class="mode-toggle" role="group" aria-label="Recommendation type">
+              <button
+                class="mode-button selected"
+                type="button"
+                data-mode="songs"
+                aria-pressed="true"
+              >
+                Songs
+              </button>
+              <button
+                class="mode-button"
+                type="button"
+                data-mode="artists"
+                aria-pressed="false"
+              >
+                Artists
+              </button>
+            </div>
+          </fieldset>
+
+          <fieldset class="chip-fieldset">
+            <legend>Pick your music preferences</legend>
+            <div id="chip-grid" class="chip-grid" aria-describedby="selected-chips"></div>
+          </fieldset>
+          <div class="selected-panel">
+            <span>Selected:</span>
+            <strong id="selected-chips">None yet</strong>
+          </div>
+          <p id="discovery-vibe" class="discovery-vibe" aria-live="polite"></p>
+          <p id="message" class="message" aria-live="polite"></p>
+          <div class="action-row">
+            <button id="recommend-button" type="submit">Get recommendations</button>
+            <button id="discover-button" class="secondary-action" type="button">
+              &#x1F3B2; Discover Me
+            </button>
+          </div>
+        </form>
+      </section>
+
+      <section class="persona-card" aria-labelledby="persona-heading">
+        <p class="persona-kicker">Listening Persona</p>
+        <h2 id="persona-heading">Start tuning your vibe</h2>
+        <p id="persona-description">
+          Choose some vibes or save favourites to discover your listening persona.
+        </p>
+      </section>
+
+      <nav class="view-tabs" aria-label="TuneFinder sections">
+        <button
+          id="recommendations-tab"
+          class="view-button selected"
+          type="button"
+          data-view="recommendations"
+          aria-pressed="true"
+        >
+          Recommendations
+        </button>
+        <button
+          id="favourites-tab"
+          class="view-button"
+          type="button"
+          data-view="favourites"
+          aria-pressed="false"
+        >
+          Favourites <span id="favourites-count">0</span>
+        </button>
+      </nav>
+
+      <section class="results-section" aria-labelledby="results-heading">
+        <div class="section-title">
+          <h2 id="results-heading">Recommendations</h2>
+          <p id="results-summary">Your matches will appear here.</p>
+        </div>
+        <div id="selected-vibes-summary" class="selected-vibes-summary hidden"></div>
+        <div id="results" class="results-grid"></div>
+      </section>
+
+      <section
+        id="favourites-section"
+        class="results-section hidden"
+        aria-labelledby="favourites-heading"
+      >
+        <div class="section-title">
+          <h2 id="favourites-heading">Favourites</h2>
+          <p id="favourites-summary">Saved songs and artists will appear here.</p>
+        </div>
+        <div id="favourites-list" class="results-grid"></div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
